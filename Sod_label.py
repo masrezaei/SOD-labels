@@ -1,5 +1,3 @@
-from skimage.io import imread
-from skimage import data
 import cv2
 import numpy as np
 from skimage import io
@@ -48,9 +46,6 @@ io.show()
 
 import json
 # Opening JSON file
-f = open('jo.json')
-data = json.load(f)
-f.close()
 
 input_path = 'test.jpg'
 input = cv2.imread(input_path)
@@ -72,6 +67,9 @@ cv2.imwrite('masoud.png',masked)
 
 
 
+f = open('jo.json')
+data = json.load(f)
+f.close()
 
 coordinates = (data[0]['annotations'][0]['result'][0]['value']['points']);
 for i in range(len(coordinates)):
