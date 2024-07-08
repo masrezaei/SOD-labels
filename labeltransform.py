@@ -19,6 +19,22 @@ with open('./Label transform/jsonfile_new.json', 'w') as file:
 
 
 
+for i in range(len(json_label)):
+    
+    outj={"categories":[],
+          "info":{"year":2024,
+                  "version":"1.0",
+                  "contributor": "Label Studio"}}
+    
+    sample_name=json_label[i]['data']['image'].split('/')[-1]
+    for ii in range(len(json_label[1]['annotations'][0]['result'])):
+        if json_label[i]['annotations'][0]['result'][ii]['value']['closed']:
+            points= json_label[1]['annotations'][0]['result'][0]['value']['points']
+            print(points)
+
+
+
+
 file=open('./Label transform/COCO/result.json')
 coco_label=json.load(file)
 file.close()
